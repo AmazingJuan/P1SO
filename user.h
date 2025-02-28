@@ -2,16 +2,19 @@
 #define USER_H
 #include <vector>
 #include "games.h"
+#include "gamerec.h"
 class User{
-    private:
+    private:   
+        std::vector<GameRec> recommended_games;
         int user_id;
         int recommendations;
-        std::vector<Games> recommended_games;
-        
     public:
         User();
         User(const int user_id);
-        void incrementRecommendation(Games &juego);
+        void sortGames();
+        void incrementRecommendation(Games *juego, const int juego_id);
+        bool searchGame(const int juego_id, int &index);
+        bool operator<(const User &usuarior) const;
 };
 
 #endif

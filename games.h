@@ -3,12 +3,14 @@
 #include <string>
 class Games{
     private:
-        unsigned int app_id;
-        std::string titulo;
         unsigned int recommendations;
+        std::string titulo;
+        int app_id;
     public:
         Games();
         Games(const unsigned int app_id, const std::string titulo);
         void incrementRecommendation();
+
+        bool operator<(const Games &otro) const;
 };
 #endif
